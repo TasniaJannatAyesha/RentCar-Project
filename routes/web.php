@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\admin_content_controller;
 use App\Http\Controllers\AdminSignupController;
 use App\Http\Controllers\admin_login_controller;
+use App\Http\Controllers\UserSignupController;
 
+Route::get('product_details/{product_id}', [HomeController::class, 'product_details'])->name('product.details');
+route::get('/all_catagories', [HomeController::class, 'all_catagories']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +19,9 @@ use App\Http\Controllers\admin_login_controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+// Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/', function () {
     return view('adminpanel.admin_dashboard');
@@ -29,6 +36,8 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/redirect', [HomeController::class, 'redirect']);
 
 Route::get('/adminsignup', [AdminSignupController::class, 'index']);
 Route::post('/adminsignup', [AdminSignupController::class, 'admin_data_store']);
@@ -67,3 +76,12 @@ Route::get('/delete_product/{product_id}', [admin_content_controller::class, 'de
 Route::get('/Customer', [admin_content_controller::class, 'Customer']);
     Route::get('/delete_Customer/{cus_id}', [admin_content_controller::class, 'delete_Customer']);
 //});
+
+Route::get('/usersignup', [UserSignupController::class, 'index']);
+Route::post('/usersignup', [UserSignupController::class, 'user_data_store']);
+
+Route::get('/userlogin', [UserSignupController::class, 'get_login']);
+Route::post('/userlogin', [UserSignupController::class, 'user_login']);
+
+
+Route::get('/userpage', [UserSignupController::class, 'userpage'])->name('userpage');
