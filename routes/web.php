@@ -9,6 +9,10 @@ use App\Http\Controllers\UserSignupController;
 
 Route::get('product_details/{product_id}', [HomeController::class, 'product_details'])->name('product.details');
 route::get('/all_catagories', [HomeController::class, 'all_catagories']);
+Route::post("/add_cart/{product_id}", [HomeController::class, "add_cart"]);
+Route::get("/show_cart", [HomeController::class, "show_cart"]);
+route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+route::get('/cash_order', [HomeController::class, 'cash_order']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes

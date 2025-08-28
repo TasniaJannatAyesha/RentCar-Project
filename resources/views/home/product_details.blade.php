@@ -134,7 +134,7 @@
                                 @csrf
                                 <div class="d-flex justify-content-center mb-4">
                                     <input type="number" name="days" value="{{ $product->days }}" min="{{ $product->days }}" class="form-control w-25 mr-2">
-                                    <button type="submit" class="btn btn-primary">Book now</button>
+                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
                                 </div>
                             </form>
                         </div>
